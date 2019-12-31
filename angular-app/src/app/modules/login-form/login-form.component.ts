@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Directive } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '@core/authentication/authentication.service';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
+    
     private auth: AuthenticationService
      ) { 
     this.form = this.formBuilder.group({
@@ -29,9 +29,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(formInfo){
-    // let observable = this.http.post('http://localhost:8084/api/auth/authenticate');
-
-    // observable.subscribe((response) => console.log(response));
+    this.auth.authenticate(formInfo.username,formInfo.password)
+    .subscribe((response)  => {
+      console.log("Reponse:"+response.toString());
+    })
   }
 
   

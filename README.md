@@ -8,4 +8,4 @@ No momento, a página do Home do projeto chama o serviço api/v1/webcontent/home
 
 Ao recuperar as Urls das imagens desse serviço, o mesmo é carreagado na tela:
 
-![] https://giphy.com/gifs/SpojeQfZMV5JkwAeWk
+![](https://media.giphy.com/media/SpojeQfZMV5JkwAeWk/giphy.gif)

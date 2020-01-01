@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumService } from '@core/services/album.service';
+import { AlbumUrls } from 'app/shared/models/album-urls';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  album : Array<any>;
+
+  constructor(private albumService: AlbumService) { }
 
   ngOnInit() {
+    this.albumService.getAlbumImages().subscribe( res => this.album = res);
   }
 
 }
